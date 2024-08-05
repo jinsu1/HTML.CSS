@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --my-color-red: #f00;
+            --my-color-green: #0f0;
+            --my-color-blue: #00f;
+            --my-color-orange: #f60;
+            --my-color-yellow: #ff0;
+            --my-color-pink: #f0f;
+        }
+
+        body {
+            color:var(--my-color=red);
+        }
+
+        .container {
+            color: var(--my-color-green);
+
+            h1 {color: var(--my-color-blue);}
+        
+            .my-box {
+                &.red {color: var(--my-color-red);}
+                &.green {color: var(--my-color-green);}
+                &.blue {color: var(--my-color-blue);}
+                &.orange {color: var(--my-color-orange);}
+                &.yellow {color: var(--my-color-yellow);}
+                &.pink {color: var(--my-color-pink);}
+
+                &:hover {background-color: #000;}
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>계층 선택자 + CSS변수</h1>
+        <div class="my-box red">Hellow world</div>
+        <div class="my-box green">Hellow world</div>
+        <div class="my-box blue">Hellow world</div>
+        <div class="my-box orange">Hellow world</div>
+        <div class="my-box yellow">Hellow world</div>
+        <div class="my-box pink">Hellow world</div>
+    </div>
+</body>
+</html>
