@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 24px;
+            line-height: 150%;
+            font-weight: bold;
+        }   
+
+        .container {
+            text-align: center;
+
+            .box {
+                width: 400px;
+                height:300px;
+                display: inline-block;
+                box-sizing: border-box;
+                margin: 0 -4px;
+
+                &:nth-child(odd) {
+                    background-color: #f60;
+                }
+
+                &:nth-child(2n) {
+                    background-color: #06f;
+                }
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+    </div>
+</body>
+</html>

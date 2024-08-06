@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
     <style>
+        :root {
+            --swiper-navigation-size:16px;
+        }
         .section_1 {
             display: flex;
             flex-direction:row-reverse;
@@ -23,7 +26,7 @@
             right:0;
             width:65%;
             height:60%;
-            transform: translateY(-40%);
+            transform: translateY(-50%);
             transition: width .2s cubic-bezier(.61,1,.88,1), height .2s cubic-bezier(.61,1,.88,1);
         }
 
@@ -65,19 +68,19 @@
                             <img src="test_img/1.jpg" alt="">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/galaxy_s6.jpg" alt="">
+                            <img src="test_img/2.jpg" alt="">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/galaxy_s7.jpg" alt="">
+                            <img src="test_img/1.jpg" alt="">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/galaxy_s8.jpg" alt="">
+                            <img src="test_img/2.jpg" alt="">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/galaxy_s9.jpg" alt="">
+                            <img src="test_img/1.jpg" alt="">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/galaxy_s10.jpg" alt="">
+                            <img src="test_img/2.jpg" alt="">
                         </div>
                     </div>
                     <div class="main_nav">
@@ -91,23 +94,23 @@
         <div class="sub_swiper">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">1
+                    <div class="swiper-slide">
                         <img src="test_img/2.jpg" alt="">
                     </div>
-                    <div class="swiper-slide">2
-                        <img src="/images/s6.jpg" alt="">
+                    <div class="swiper-slide">
+                        <img src="test_img/1.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="/images/s7.jpg" alt="">
+                        <img src="test_img/2.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="/images/s8.jpg" alt="">
+                        <img src="test_img/2.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="/images/s9.jpg" alt="">
+                        <img src="test_img/1.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="/images/s10.jpg" alt="">
+                        <img src="test_img/1.jpg" alt="">
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
@@ -121,18 +124,20 @@
 
     <script>
     let loop_slider = true;
-    var SubSwiper = new Swiper('.sub_swiper .swiper-container', {});
+    var SubSwiper = new Swiper('.sub_swiper .swiper-container', {
+       
+    });
 
     var MainSwiper = new Swiper('.main_swiper .swiper-container', {
         loop:loop_slider,
+        slidesPerView: 1,
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-        pagination: {
-            el: '.swiper-pagination',
-            type: 'bullets',
-            clickable: true,
+        scrollbar: {
+        el: ".swiper-pagination",
+        type: "fraction",
         },
         controller: {
             control: SubSwiper
