@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swiper duplication</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
+    <style>
+        .section_1 {
+            display: flex;
+            flex-direction:row-reverse;
+            max-width: 1920px;
+            height: 100vh;
+        }
+        .sub_swiper {
+            width: 50%;
+        }
+
+        .main_swiper {
+            position:absolute;
+            top:50%;
+            right:0;
+            width:65%;
+            height:60%;
+            transform: translateY(-40%);
+            transition: width .2s cubic-bezier(.61,1,.88,1), height .2s cubic-bezier(.61,1,.88,1);
+        }
+
+        .main_swiper_bg {
+            width: 50%;
+            background-color: #f4f4f4;
+            position:relative;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height:100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .swiper-container img {
+            width: 100%;
+        }
+
+        .swiper-wrapper {
+        }
+
+        .swiper_slide {
+            width:100%;
+            height:50%;
+            text-align: center;
+        }
+    </style>
+</head>    
+    <body>
+    <div class="section_1">
+        <div class="main_swiper_bg">
+            <div class="main_swiper">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="test_img/1.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/images/galaxy_s6.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/images/galaxy_s7.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/images/galaxy_s8.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/images/galaxy_s9.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/images/galaxy_s10.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="main_nav">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sub_swiper">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">1
+                        <img src="test_img/2.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">2
+                        <img src="/images/s6.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/images/s7.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/images/s8.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/images/s9.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/images/s10.jpg" alt="">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+    let loop_slider = true;
+    var SubSwiper = new Swiper('.sub_swiper .swiper-container', {});
+
+    var MainSwiper = new Swiper('.main_swiper .swiper-container', {
+        loop:loop_slider,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true,
+        },
+        controller: {
+            control: SubSwiper
+        }
+    });
+    </script>
+</body>
+</html>
+
