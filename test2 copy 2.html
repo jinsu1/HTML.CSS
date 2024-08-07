@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swiper duplication</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .wrap {
+		width: 100%;
+        height:100
+		border: 1px solid #ddd;
+		display: flex;
+	}
+
+	.box {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+        justify-content: center;
+	}
+    
+    .box.style01 {
+        padding-left:25%;
+        
+    }
+
+	.box.style02 {
+		overflow: hidden;
+	}
+
+    .main-slide {
+        width:100%;
+    }
+
+    .main_img {
+        img {
+            width:100%;
+        }
+    }
+
+    .sub_img {
+        top:50%;
+        img {
+            width:100%;
+        }
+    }
+    </style>
+</head>    
+<body>
+    <div class="wrap">
+        <div class="box style02">
+            <!--main-->
+            <div class="swiper-container main-slide">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-container main_img">
+                            <img src="test_img/1.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-container main_img">
+                            <img src="test_img/1.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-container main_img">
+                            <img src="test_img/1.jpg" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box style01">
+            <div class="upper">
+                <h1>title</h1>
+                <h4>content</h4>
+            </div>
+            <div class="lower">
+                <div class="sub_wrap">
+                    <div class="sub_inner">
+                        <div class="swiper-container sub-slide">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide-container sub_img">
+                                        <img src="test_img/2.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide sub_img">
+                                    <div class="swiper-slide-container sub_img">
+                                        <img src="test_img/2.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide sub_img">
+                                    <div class="swiper-slide-container sub_img">
+                                        <img src="test_img/2.jpg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.js"></script>
+
+    <script>
+        var swiperTopNum = $('.main-slide').find('.swiper-slide');
+        var swiperSubNum = $('.sub-slide').find('.sub-slide');
+
+        var mainSlide = new Swiper('.main-slide', {
+            loop: true,	//슬라이드 반복
+            loopedSlides: swiperTopNum.length
+        });
+
+        var subSlide = new Swiper('.sub-slide', {
+            spaceBetween: 10,	//슬라이드 간격
+            centeredSlides: false,	//슬라이드 중앙 배치
+            slidesPerView: '1.5',	//한번에 보여지는 슬라이드 개수
+            slideToClickedSlide: true,	//클릭 시 해당 슬라이드 위치로 이동
+            loop: true,	//슬라이드 반복
+            loopedSlides: swiperSubNum.length //loop 시 파라미터 duplicate 개수
+        });
+
+        
+        mainSlide.controller.control = subSlide;
+        subSlide.controller.control = mainSlide;
+    </script>
+</body>
+</html>
+

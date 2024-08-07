@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+        }
+        body {
+            background-color: #f1f1f1;
+            height:2000px;
+            margin:0;
+            padding:0;
+        }
+
+        img {
+            width:100%;
+            margin-top: 74px;
+        }
+
+        h1, h2{ 
+            text-align: center;
+        }
+
+        h1 {
+            border-bottom: 1px solid #4d4c4c;
+            padding:15px 0;
+            margin:0;
+            position: fixed;
+            z-index:1;
+            background-color: #f1f1f1;
+            width:100%;
+        }
+        .mytable {
+            caption-side: bottom;
+            border-collapse:collapse;
+            empty-cells: show;
+            width:100%;
+        }
+
+        .table_last {
+            border-bottom: none;
+            td {
+                border-bottom: none;
+            }
+        }
+
+        td, th {
+            padding:10px;
+            text-align: center;
+            &:nth-child(1) {
+                border-left:none;
+            }
+
+            &:nth-last-child(1){
+                border-right:none;
+            }
+        }
+
+        th{
+            background-color: #bcd6f8;
+            border:1px solid #b1ccf0;
+        }
+
+        td {
+            border:1px solid #b1ccf0;
+            background-color:  rgb(225, 238, 247);
+        }
+
+        caption {
+            margin :5px;
+            text-align: left;
+            font-size:14px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .go_top {
+            position:fixed;
+            bottom:10px;
+            right:10px;
+            font-size:36px;
+            color:#4d4c4c;
+            width:46px;
+            height:46px;
+            background-color: #b1ccf0;
+            border-radius: 50%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+<body>
+    <h1>상세 정보</h1>
+    <img src="img/top.jpg" alt="사과">
+    <h2>상품 구성</h2>
+    <table class="mytable">
+        <caption>*선물용과 가정용 상품 구성</caption>
+        <thead>
+            <tr>
+                <th>용도</th>
+                <th>중량</th>
+                <th>갯수</th>
+                <th>가격</th>
+                <th>비고</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">선물용</td>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>35,000</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>5kg</td>
+                <td>18~26과</td>
+                <td>52,000</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="table_last">가정용</td>
+                <td>3kg</td>
+                <td>18~26과</td>
+                <td>30,000</td>
+                <td></td>
+            </tr>
+            <tr class="table_last">
+                <td>5kg</td>
+                <td>18~26과</td>
+                <td>47,000</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="#" class="fa-solid fa-angle-up go_top" alt="top"></a>
+</body>
+</html>

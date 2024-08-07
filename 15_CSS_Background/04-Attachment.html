@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      .section {
+        height: 968px;
+
+        &.num1 {
+            background-color: yellow;
+        }
+
+        &.num2 {
+            background-color: blue;
+        }
+
+        &.num3 {
+            background-color: lightblue;
+        }
+      }
+
+      .header, .footer {
+        height: 500px;
+      }
+
+      .header {
+        background-image:url(img/bg1.jpg);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+      .footer {
+        background-image:url(img/bg2.jpg);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+        /* &:nth-child(2n) {
+            background-color: #d5d5d5;
+        }
+
+        &:nth-child(odd) {
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        &:nth-child(1) {
+            background-image: url(img/bg1.jpg);
+        }
+        &:nth-child(3) {
+            background-image: url(img/bg2.jpg);
+        }
+        &:nth-child(5) {
+            background-image: url(img/bg3.jpg);
+        }
+        &:nth-child(7) {
+            background-image: url(img/bg4.jpg);
+        }
+      } */
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="section num1"></div>
+    <div class="section num2"></div>
+    <div class="section num3"></div>
+    <div class="footer"></div>
+</body>
+</html>
