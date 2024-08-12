@@ -5,18 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>swiper duplication</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
-    <style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css"/>
+
+<style>
+    :root {
+        --color-black: #000;
+    }
+
     * {
+        -webkit-box-sizing: content-box;
         box-sizing: border-box;
     }
 
+
+    /*header*/
+    .header_pc {
+        position: fixed;
+        top:0;
+        left:0; 
+        width:100%;
+        height:80px;
+        font-size:20px;
+        font-family: 'Noto Sans KR', serif;
+        padding:10px 10px 10px 20px;
+        z-index:100;
+        background-color: var(--color-black);
+        display: flex;
+        align-items: center;
+        letter-spacing: -0.025em;
+        
+
+        .logo {
+            margin:10px;
+            margin-right:auto;
+            width:100px;
+            
+            .logo_img {    
+                width:100%;
+            }
+        }
+
+        .header_pc_menu {
+            margin-left: auto;
+            width:150px;
+            margin:10px;
+            display:flex;
+            justify-content: space-between;
+
+            img {
+                margin-left:20px;
+            }
+        }
+
+        .gnb {
+            position:absolute;
+            width:100%;
+
+            .gnb_menu {
+                display: flex;
+                width:1000px;
+                margin: 0 auto;
+                color:white;
+                font-weight:600;
+
+                li {
+                    flex: 0 1 20%;
+                    text-align: center;
+                }
+            }
+        }       
+    }
+
+
+
+    
+    /*header-end*/
+    /*body*/
+
+    /*duplicate swiper section*/
     .wrap {
 		max-width: 1920px;
-        min-height: 940px;
-        max-height: 1080px;
+        max-height:940px;
 		display: flex;
         background-color: #f4f4f4;
+        font-family: 'Noto Sans KR', serif;
 	}
 
 	.box {
@@ -27,7 +99,7 @@
 	}
     
     .box.style01 {
-        padding-left:20%;
+        padding-left:5%;
         
     }
 
@@ -45,15 +117,101 @@
         }
     }
 
+    .column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sub_swiper_title {
+        color: rgb(116, 116, 116);
+        opacity:1;
+        display: -webkit-box;
+        overflow: hidden;
+        height: 2.5em;
+        margin-bottom: 24px;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        font-weight: 700;
+        font-size: 2.3vw;
+        line-height: 1.25;
+        letter-spacing: -.025em;
+    }
+
+    .sub_swiper_name {
+        margin-top: 16px;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.375;
+        letter-spacing: -.025em;
+        color: #222;
+    }
+
+    .sub_swiper_desc {
+        margin-top: 4px;
+        font-size: 18px;
+        letter-spacing: 0;
+        color: #666;
+    }
+
     .sub_img {
+        position:relative;
         top:50%;
+        width:80%;
+        background-color: white;
+        
+        &:after {
+                content: "";
+                display:block;
+                padding-bottom: 100%;
+        }
+
         img {
-            width:100%;
+            position:absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform .2s cubic-bezier(.32,0,.67,0);
+
+            &:hover {
+                scale: 1.2;
+            }
         }
     }
+
+    /*duplicate swiper section - end*/
+    /*body-end*/
+
+    /*footer*/
+    /*footer-end*/
     </style>
 </head>    
 <body>
+    <div class="header_pc">
+        <a href="/" class="logo">
+            <img src="/test_img/sony_logo.svg" class="logo_img" alt="sony_logo">
+        </a>
+        <nav class="gnb">
+            <ul class="gnb_menu">
+                <li>스토어 추천 제품</li>
+                <li>제품</li>
+                <li>기획전</li>
+                <li>멤버쉽</li>
+                <li>고객 서비스</li>
+            </ul>
+        </nav>
+        <div class="header_pc_menu">
+            <a href="#">
+                <img src="/test_img/icon_search.svg" alt="검색">
+            </a>
+            <a href="#">
+                <img src="/test_img/icon_mypage.svg" alt="마이페이지">
+            </a>
+            <a href="#">
+                <img src="/test_img/icon_cart.svg" alt="장바구니">
+            </a>
+        </div>
+    </div>
+
     <div class="wrap">
         <div class="box style02">
             <!--main-->
@@ -78,29 +236,34 @@
             </div>
         </div>
         <div class="box style01">
-            <div class="upper">
-                <h1>title</h1>
-                <h4>content</h4>
-            </div>
             <div class="lower">
                 <div class="sub_wrap">
                     <div class="sub_inner">
                         <div class="swiper-container sub-slide">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
+                                <div class="swiper-slide column">
+                                    <span class="sub_swiper_title">기록의 완성</span>
                                     <div class="swiper-slide-container sub_img">
-                                        <img src="test_img/2.jpg" alt="" />
+                                        <img src="test_img/swiper_camera.png" alt="camera" />
                                     </div>
+                                    <span class="sub_swiper_name">ZV-E10M2</span>
+                                    <span class="sub_swiper_desc">기록의 완성</span>
                                 </div>
-                                <div class="swiper-slide sub_img">
+                                <div class="swiper-slide column">
+                                    <span class="sub_swiper_title">Best 노이즈 캔슬링</span>
                                     <div class="swiper-slide-container sub_img">
                                         <img src="test_img/2.jpg" alt="" />
                                     </div>
+                                    <span class="sub_swiper_name">WH-1000XM5</span>
+                                    <span class="sub_swiper_desc">#몰입의 즐거움 #스터디헤드폰</span>
                                 </div>
-                                <div class="swiper-slide sub_img">
+                                <div class="swiper-slide column">
+                                    <span class="sub_swiper_title">1000X 이어폰</span>
                                     <div class="swiper-slide-container sub_img">
                                         <img src="test_img/2.jpg" alt="" />
                                     </div>
+                                    <span class="sub_swiper_name">WF-1000XM5</span>
+                                    <span class="sub_swiper_desc">이것은 작게 진화한 핸드폰</span>
                                 </div>
                             </div>
                         </div>
@@ -129,6 +292,8 @@
             slideToClickedSlide: true,	//클릭 시 해당 슬라이드 위치로 이동
             loop: true,	//슬라이드 반복
             loopedSlides: swiperSubNum.length //loop 시 파라미터 duplicate 개수
+            /*scrollbar: {
+            el: '.swiper-scrollbar',*/
         });
 
         

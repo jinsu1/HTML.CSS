@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding:0;
+            margin:0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .tablist {
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background:#fff;
+
+            display: flex;
+            justify-content: space-between;
+
+            .tab {
+                height: 50px;
+                font-weight: bold;
+                padding: 0 15px;
+
+                display:flex;
+                align-items: center;
+
+                .icon {
+                    font-size: 22px;
+                    padding: 0 25px;
+
+                    &:hover {
+                        color: #00c73c;
+                    }
+                }
+            }
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <ul class="tablist">
+            <li>
+                <a href="#" class="tab icon">
+                    <i class="fas fa-user"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="tab">정렬이 다른 메뉴</a>
+            </li>
+            <li>
+                <a href="#" class="tab icon">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </li>
+        </ul>
+    </header>
+</body>
+</html>

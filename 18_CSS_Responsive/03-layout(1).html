@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+
+            .header {
+                background-color: #e5e5e5;
+                padding: 15px;
+                text-align: center;
+            }
+
+            .footer {
+                background-color: #e5e5e5;
+                text-align: center;
+                padding: 10px;
+                margin-top: 7px;
+            }
+
+            .body {
+                display: flex;
+                flex-wrap: wrap;
+
+                .menu {
+                    width: 20%;
+                    text-align: center;
+
+                    @media only screen and (max-width: 620px) {
+                        width: 100%;
+                    }
+
+                    a {
+                        background-color: #e5e5e5;
+                        padding: 8px;
+                        margin-top: 7px;
+                        display: block;
+                        width: 100%;
+                        color: black;
+                    }
+                }
+
+                .main {
+                    width: 60%;
+                    padding: 0 20px;
+
+                    @media only screen and (max-width: 620px) {
+                        width: 100%;
+                    }
+                }
+
+                .right {
+                    background-color: #e5e5e5;
+                    width: 20%;
+                    padding: 15px;
+                    margin-top: 7px;
+                    text-align: center;
+
+                    @media only screen and (max-width: 620px) {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+      
+    </style>
+</head>
+<div>
+   <div class="container">
+    <div class="header">
+        <h1>Hello world</h1>
+    </div>
+
+   <div class="body">
+    <div class="menu">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+        <a href="#">Link 4</a>
+    </div>
+
+
+   <div class="main">
+    <h2>Lorem ipsum</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis obcaecati eius vitae expedita dolore distinctio et voluptate illum voluptas omnis porro non ab cum asperiores quaerat dolores veritatis, eos rem?</p>
+   </div>
+
+   <div class="right">
+    <h2>About</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+   </div>
+</div>
+
+    <div class="footer">&copy; copyright</div>
+</div>
+</body>
+</html>
