@@ -10,6 +10,8 @@
 <style>
     :root {
         --color-black: #000;
+
+        --animation-duration: 300ms;
     }
 
     * {
@@ -58,9 +60,8 @@
         }
 
         .gnb {
-            position:absolute;
             width:100%;
-
+            position: absolute;
             .gnb_menu {
                 display: flex;
                 width:1000px;
@@ -93,6 +94,7 @@
 
 	.box {
 		width: 50%;
+        height:auto;
 		display: flex;
 		flex-direction: column;
         justify-content: center;
@@ -124,7 +126,7 @@
 
     .sub_swiper_title {
         color: rgb(116, 116, 116);
-        opacity:1;
+        opacity:0;
         display: -webkit-box;
         overflow: hidden;
         height: 2.5em;
@@ -145,6 +147,7 @@
         line-height: 1.375;
         letter-spacing: -.025em;
         color: #222;
+        opacity:0;
     }
 
     .sub_swiper_desc {
@@ -152,6 +155,11 @@
         font-size: 18px;
         letter-spacing: 0;
         color: #666;
+        opacity: 0;
+    }
+
+    .opacity_1 {
+        opacity: 1;
     }
 
     .sub_img {
@@ -170,7 +178,7 @@
             position:absolute;
             width: 100%;
             height: 100%;
-            transition: transform .2s cubic-bezier(.32,0,.67,0);
+            transition: all var(--animation-duration) ease-in-out;
 
             &:hover {
                 scale: 1.2;
@@ -219,17 +227,17 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="swiper-slide-container main_img">
-                            <img src="test_img/1.jpg" alt="" />
+                            <img src="test_img/main_swiper_headphone.jpg" alt="" />
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="swiper-slide-container main_img">
-                            <img src="test_img/1.jpg" alt="" />
+                            <img src="test_img/main_swiper_earphone.jpg" alt="earphone_img" />
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="swiper-slide-container main_img">
-                            <img src="test_img/1.jpg" alt="" />
+                            <img src="test_img/main_swiper_camera.jpg" alt="" />
                         </div>
                     </div>
                 </div>
@@ -252,7 +260,7 @@
                                 <div class="swiper-slide column">
                                     <span class="sub_swiper_title">Best 노이즈 캔슬링</span>
                                     <div class="swiper-slide-container sub_img">
-                                        <img src="test_img/2.jpg" alt="" />
+                                        <img src="test_img/swiper_headphone.png" alt="" />
                                     </div>
                                     <span class="sub_swiper_name">WH-1000XM5</span>
                                     <span class="sub_swiper_desc">#몰입의 즐거움 #스터디헤드폰</span>
@@ -260,7 +268,7 @@
                                 <div class="swiper-slide column">
                                     <span class="sub_swiper_title">1000X 이어폰</span>
                                     <div class="swiper-slide-container sub_img">
-                                        <img src="test_img/2.jpg" alt="" />
+                                        <img src="test_img/swiper_earphone.png" alt="" />
                                     </div>
                                     <span class="sub_swiper_name">WF-1000XM5</span>
                                     <span class="sub_swiper_desc">이것은 작게 진화한 핸드폰</span>
@@ -282,7 +290,8 @@
 
         var mainSlide = new Swiper('.main-slide', {
             loop: true,	//슬라이드 반복
-            loopedSlides: swiperTopNum.length
+            loopedSlides: swiperTopNum.length,
+            touchRatio: 0
         });
 
         var subSlide = new Swiper('.sub-slide', {
@@ -295,10 +304,42 @@
             /*scrollbar: {
             el: '.swiper-scrollbar',*/
         });
-
-        
+       
         mainSlide.controller.control = subSlide;
         subSlide.controller.control = mainSlide;
+    </script>
+    <script>
+        const SubSlide = document.querySelectorAll(".column");
+        const SubSlideTitle = document.querySelectorAll(".sub_swiper_title");
+        const SubSlideName = document.querySelectorAll(".sub_swiper_name");
+        const SubSlideDesc = document.querySelectorAll(".sub_swiper_desc");
+
+        // 클래스 변경을 감지할 콜백 함수
+        const callback = function(mutationsList) {
+            mutationsList.forEach(mutation => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                SubSlide.forEach((slide, index) => {
+                    const hasClass = slide.classList.contains('swiper-slide-active');
+                
+                    if (hasClass) {
+                            SubSlideTitle[index].classList.add('opacity_1');
+                            SubSlideName[index].classList.add('opacity_1');
+                            SubSlideDesc[index].classList.add('opacity_1');
+                        } else {
+                            SubSlideTitle[index].classList.remove('opacity_1');
+                            SubSlideName[index].classList.remove('opacity_1');
+                            SubSlideDesc[index].classList.remove('opacity_1');
+                        }
+                    });
+                }
+            });
+        };
+
+        // 각 슬라이드에 대해 MutationObserver를 설정
+        SubSlide.forEach((slide) => {
+            const observer = new MutationObserver(callback);
+            observer.observe(slide, { attributes: true });
+        });
     </script>
 </body>
 </html>

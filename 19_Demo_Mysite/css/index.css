@@ -1,0 +1,71 @@
+.main {
+    
+    .title {
+        width: 100%;
+        height: 40vh;
+        display: flex;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+    
+
+        .hello {
+            margin: auto;
+
+            color: var(--my-color-white);
+            text-align: center;
+            text-transform: uppercase;
+            padding: 30px 50px;
+
+            @media only screen and (max-width:992px) {
+                padding: 20px 30px;
+            }
+
+            h1 {
+                font-size: 36px;
+                font-weight: 600;
+                white-space: nowrap;
+                margin-bottom: 10px;
+
+                @media only screen and (max-width: 992px) {
+                    font-size: 26px;
+                }
+            }
+
+            p {
+                font-size: 20px;
+                font-weight: 300;
+
+                @media only screen and (max-width: 992px) {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .introduce {
+        
+        .title {
+            height: 100vh;
+            background-image: url("../assets/img/parallax1.jpg");
+
+            .hello {
+                background-color: var(--my-color-gray);
+            }
+        }
+    }
+
+    .portfolio {
+        
+        .title {
+            background-image: url("../assets/img/parallax2.jpg");
+        }
+    }
+
+    .contact {
+        
+        .title {
+            background-image: url("../assets/img/parallax3.jpg")
+        }
+    }
+}

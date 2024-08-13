@@ -1,0 +1,132 @@
+:root {
+    /* color */
+    --my-color-black: #000;
+    --my-color-dark-gray: #444;
+    --my-color-gray: #616161;
+    --my-color-gray-op: #61616177;
+    --my-color-light-gray: #eee;
+    --my-color-white: #f1f1f1;
+    --my-color-black-op: #0001;
+    --my-color-green: #0f0;
+}
+
+* {
+    font-family: 'Note Sans KR', sans-serif;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* link default set */
+a {
+    text-decoration: none;
+    color: var(--my-color-black)
+}
+
+/* top area */
+.header {
+    background-color: #f005;
+
+    position : absolute;
+    left: 0;
+    right: 0;
+
+    z-index: 9999;
+
+    width:100%;
+
+    .menu {
+        max-width: 1800px;
+        margin: auto;
+        display: flex;
+
+        li {
+            text-align: center;
+
+            @media only screen and (max-width: 992px) {
+                width: 20%;
+            }
+
+            &:last-child {
+                margin-left: auto;
+
+                span {
+                    display: none;
+
+                    @media only screen and (max-width: 992px) {
+                        display: block;
+                    }
+                }
+            }
+
+            a {
+                display: block;
+                font-size:18px;
+                font-weight: 500;
+                padding: 20px;
+
+                &:hover {
+                    background-color: var(--my-color-black-op);
+                }
+
+                span {
+                    margin-left: 10px;
+                    font-size: 17px;
+
+                    @media only screen and (max-width: 992px) {
+                        display:block;
+                        margin-top: 5px;
+                        margin-left: 0;
+                        font-size: 12px;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* footer area */
+.footer {
+    background-color: var(--my-color-black);
+    text-align: center;
+    padding: 50px 10px;
+
+    .to-the-top {
+        display:inline-block;
+        background-color: var(--my-color-light-gray);
+        padding: 10px 25px;
+        font-size: 18px;
+        color: var(--my-color-gray);
+        margin-bottom: 10px;
+
+        i {
+            margin-right: 10px;
+        }
+
+        &:hover {
+            background-color: var(--my-color-green);
+            color: var(--my-color-black);
+        }
+    }
+
+    .social-list {
+        display: flex;
+        justify-content: center;
+
+        a {
+            color: var(--my-color-white);
+            display: block;
+            font-size: 35px;
+            margin: 20px 10px 40px 10px;
+
+            &:hover {
+                color: var(--my-color-green);
+            }
+        }
+    }
+
+    address {
+        color: var(--my-color-white);
+        font-size: 18px;
+    }
+}
