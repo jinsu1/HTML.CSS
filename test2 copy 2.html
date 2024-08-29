@@ -81,16 +81,36 @@
     /*body*/
 
     /* banner */
-    .banner {
-        overflow: hidden;
-        width: 100%;
-        height: calc(100vh - 80px);
-        min-height: 600px;
-        max-height: 1200px;
-        background-repeat: no-repeat;
-        background-position: 50%;
-        background-size: cover;
-    }
+        .banner {
+            margin-top:80px;
+            max-height:calc(100vh - 80px);
+            width:100%;
+            overflow: hidden;
+            position: relative;
+
+            .swiper-slide {
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                
+                img {
+                    width:100%;
+                    height:100%;
+                }
+
+                video {
+                    width: 100%;
+                }
+            }
+            .swiper-pagination {
+                position:absolute;
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-end;
+                transform: translateX(-5%);
+                bottom: 3rem;
+            }
+        }
     /* banner end*/
 
     /*duplicate swiper section*/
@@ -235,14 +255,30 @@
 
     <!-- banner -->
     <div class="banner">
-        <div class="banner-swiper mySwiper">
+        <div class="banner_swiper">
             <div class="swiper-wrapper">
-                <div class="banner-swiper-slide" style="font-size:100px;">Slide 1</div>
-                <div class="banner-swiper-slide">Slide 2</div>    
-                <div class="banner-swiper-slide">Slide 3</div>
-                <div class="banner-swiper-slide">Slide 4</div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="test_img/banner/01_PC_main_IMG.jpg" alt="banner1" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="test_img/banner/02_PC_main_IMG.jpg" alt="banner2" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="banner_video">
+                        <video src="test_img/banner/03_PC_main_vedio.mp3" loop autoplay="true" muted></video>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="test_img/banner/04_PC_main_IMG.jpg" alt="banner4" />
+                    </a>
+                </div>
             </div>
-            <div class="banner-swiper-pagination"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </div>
     <!-- banner end -->
@@ -310,28 +346,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.js"></script>
     <script>
-        //main banner
         let loop_slider = true;
         const num_of_slides = 4;
-        let swiper_sliders = document.querySelectorAll(".banner-swiper");
+        let swiper_sliders = document.querySelectorAll(".banner_swiper");
 
         for (const this_slider of swiper_sliders){
-        //work as per usual
-        let num_of_slides_before_init = this_slider.querySelectorAll(".banner-swiper-slide").length;
-        if(num_of_slides_before_init < num_of_slides){
-            loop_slider = false;
-        }
+            let num_of_slides_before_init = this_slider.querySelectorAll(".swiper-slide").length;
+            if(num_of_slides_before_init < num_of_slides){
+                loop_slider = false;
+            }
 
-        let swiper = new Swiper(this_slider, {
-            slidesPerView: 1,
-            loop: loop_slider,
-            spaceBetween: 30,
-            pagination: {
-            el: ".banner-swiper-pagination",
-            clickable: true,
-            },
-        });
-
+            let swiper = new Swiper(this_slider, {
+                slidesPerView: 1,
+                loop: loop_slider,
+                pagination: {
+                el: ".swiper-pagination",
+                type: 'fraction',
+                },
+            });
         };
     </script>
     
