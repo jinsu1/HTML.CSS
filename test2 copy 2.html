@@ -88,6 +88,31 @@
             overflow: hidden;
             position: relative;
 
+            .swiper-button-prev{
+                width:50%;
+                height:100%;
+                position:absolute;
+                top:0;
+                left:0;
+                cursor: url('test_img/banner/arrow_left.png'), auto;
+
+                &:after {
+                    content: "";
+                }
+            }
+            
+            .swiper-button-next{
+                width:50%;
+                height:100%;
+                position:absolute;
+                top:0;
+                right:0;
+                cursor: url('test_img/banner/arrow_left.png'), auto;
+
+                &:after {
+                    content: "";
+                }
+            }
             .swiper-slide {
                 width: 100%;
                 height: auto;
@@ -102,13 +127,22 @@
                     width: 100%;
                 }
             }
+
+            .banner_perv {
+                font-size: 550px;
+                color:white;
+                z-index: 1001;
+            }
+
             .swiper-pagination {
                 position:absolute;
                 display: flex;
                 align-items: flex-end;
                 justify-content: flex-end;
-                transform: translateX(-5%);
-                bottom: 3rem;
+                transform: translateX(-2%);
+                bottom: 2.5rem;
+                color: white;
+                font-weight:bold;
             }
         }
     /* banner end*/
@@ -218,6 +252,15 @@
     }
 
     /*duplicate swiper section - end*/
+    
+    /* event section */
+    .event_container{
+        padding: 2rem 24px;
+        width:100%;
+        height:auto;
+    }
+
+    /* event section end */
     /*body-end*/
 
     /*footer*/
@@ -278,6 +321,8 @@
                     </a>
                 </div>
             </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
             <div class="swiper-pagination"></div>
         </div>
     </div>
@@ -285,6 +330,8 @@
     <div class="wrap">
         <div class="box style02">
             <!--main-->
+
+            <!-- dual swiper-->
             <div class="swiper-container main-slide">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -342,10 +389,19 @@
             </div>
         </div>
     </div>
+    <!-- dual swiper end-->
+
+    <!-- event section-->
+    <div class="event_container">
+
+    </div>
+    <!-- event section end-->
+
     <!-- jQuery cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.js"></script>
     <script>
+        //banner swiper
         let loop_slider = true;
         const num_of_slides = 4;
         let swiper_sliders = document.querySelectorAll(".banner_swiper");
@@ -359,9 +415,17 @@
             let swiper = new Swiper(this_slider, {
                 slidesPerView: 1,
                 loop: loop_slider,
+                // allowTouchMove: false,
+                navigation: {
+                prevEl: '.swiper-button-prev',
+                nextEl: '.swiper-button-next',
+                },
                 pagination: {
                 el: ".swiper-pagination",
-                type: 'fraction',
+                type: 'custom',
+                renderCustom: function (swiper, current, total) {
+                    return 'No.0' + current + '<span style="color:#666">' +'&nbsp;___ 0' + total + '</span>';
+                    }
                 },
             });
         };
@@ -385,8 +449,6 @@
             slideToClickedSlide: true,	//클릭 시 해당 슬라이드 위치로 이동
             loop: true,	//슬라이드 반복
             loopedSlides: swiperSubNum.length //loop 시 파라미터 duplicate 개수
-            /*scrollbar: {
-            el: '.swiper-scrollbar',*/
         });
        
         mainSlide.controller.control = subSlide;
